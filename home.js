@@ -57,7 +57,6 @@ function createLineChart() {
 
 function updateChart() {
     //Remove every old data set
-    console.log(chart.data.datasets);
     chart.data.datasets.pop()
 
     let temp = {
@@ -80,7 +79,8 @@ function jsonDataToArray() {
     let arr = [];
 
     context.forEach(element => {
-        arr.push(current[element]);
+        let temp = String(current[element]);
+        arr.push(temp.replace(",",""));
     });
 
     return arr;
